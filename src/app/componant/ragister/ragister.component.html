@@ -1,0 +1,81 @@
+<div>
+  <form class="form-content" clrLayout="vertical"  clrForm [formGroup]="form" (ngSubmit)="submit()">
+      <!-- <app-fundooheader></app-fundooheader> -->
+      <div>
+        <div class="word" fxLayout="coloum" fxLayoutAlign="start center">
+          <h1><span class="letter">F</span></h1>
+          <h1><span class="letter1">u</span></h1>
+          <h1><span class="letter2">n</span></h1>
+          <h1><span class="letter">d</span></h1>
+          <h1><span class="letter3">o</span></h1>
+          <h1><span class="letter1">o</span></h1>
+        </div>
+          <div class="head">
+              <h2>Create Your Fundoo Account</h2>
+          </div>
+          <!-- <div> -->
+          <div class="name">
+              <clr-input-container>
+                  <input clrInput formControlName="fname" placeholder="Enter FirstName" name="fname" required />
+                  <label>FirstName</label>
+                  <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
+              </clr-input-container>
+          </div>
+          <div class="name">
+              <clr-input-container>
+                  <input clrInput formControlName="lname" placeholder="Enter LastName" name="lname" required />
+                  <label>LastName</label>
+                  <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
+              </clr-input-container>
+          </div>
+          <!-- </div> -->
+          <div class="email">
+              <clr-input-container>
+                  <label>Username</label>
+                  <input clrInput formControlName="email" placeholder="Enter Email" name="email" required />
+                  <clr-control-helper>You can use letters, numbers & periods
+                  </clr-control-helper>
+                  <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
+              </clr-input-container>
+          </div>
+          <!-- <div> -->
+          <div class="passwd">
+              <clr-password-container>
+                  <label>Password</label>
+                  <input clrPassword formControlName="password" placeholder="Password" name="password" required minlength="8" />
+                  <clr-control-error *clrIfError="'required'">This field is required!
+                  </clr-control-error>
+                  <clr-control-error *clrIfError="'minlength'">It must be at least 8 characters!
+                  </clr-control-error>
+              </clr-password-container>
+          </div>
+          <div class="passwd">
+              <clr-password-container>
+                  <label>Confirm</label>
+                  <input clrPassword formControlName="password" placeholder="Password" name="password" required minlength="8" />
+                  <clr-control-error *clrIfError="'required'">
+                    This field is required!
+                  </clr-control-error>
+                  <clr-control-error *clrIfError="'minlength'">
+                    It must be at least 8 characters! 
+                  </clr-control-error>
+                </clr-password-container>
+          </div>
+          <!-- </div> -->
+          <div>
+            <clr-control-helper>
+              Use 8 or more characters with a mix of letters, numbers & symbols
+          </clr-control-helper>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="start">
+              <a class="line" routerLink="/login">Sign in instead</a>
+          </div>
+          <div fxLayout="row" fxLayoutAlign="center">
+              <button type="submit" class="btn btn-primary">Next</button>
+          </div>
+      </div>
+  </form>
+  <div>
+      <img src="../assets/sideimage.png" alt="image" class="logo">
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div>
+      <form class="form-main" clrForm [formGroup]="form" (ngSubmit)="submit()">
+      <div>
+        <!-- <app-fundooheader fxLayout="column" fxLayoutAlign="space-between center"></app-fundooheader> -->
+        <div class="word" fxLayout="row" fxLayoutAlign="center">
+          <h2><span class="letter">F</span></h2>
+          <h2><span class="letter1">U</span></h2>
+          <h2><span class="letter2">N</span></h2>          
+          <h2><span class="letter">D</span></h2>
+          <h2><span class="letter3">O</span></h2>
+          <h2><span class="letter1">O</span></h2>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center">
+          <h2>Reset Password</h2>
+        </div>
+        <div class="pass" fxLayout="row" fxLayoutAlign="center">
+          <clr-password-container>
+            <input clrPassword formControlName="password" placeholder="Enter a new password" name="password" minlength="8" required/>
+            <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
+            <clr-control-error *clrIfError="'minlength'">
+              It must be at least 8 characters! 
+            </clr-control-error> 
+          </clr-password-container>
+        </div>
+        <div class="pass" fxLayout="row" fxLayoutAlign="center">
+          <clr-password-container>
+            <input clrPassword formControlName="password" placeholder="confirm a new password" name="password" minlength="8" required/>
+            <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
+            <clr-control-error *clrIfError="'minlength'">
+              It must be at least 8 characters! 
+            </clr-control-error>
+          </clr-password-container>
+        </div>
+        <div style="margin-top: 40px;" fxLayout="row" fxLayoutAlign="space-around center">
+          <a routerLink="/login"> sign in? </a>
+          <button type="submit" class="btn btn-primary"> Submit </button>
+        </div>
+      </div>
+    </form>
+  </div>

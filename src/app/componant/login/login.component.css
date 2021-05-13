@@ -1,0 +1,33 @@
+.form-main{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border: 1px solid #9c9c9c;
+    border-radius: 10px;
+    width: 300px;
+    height: 450px;
+    background: #fff;
+    padding: 30px;
+}
+.word{
+  letter-spacing: 2px;
+  }
+          .letter{
+            color: blue;
+          }
+          .letter1{
+            color: red;
+          }
+          .letter2{
+            color: yellow;
+          }
+          .letter3{
+            color: green;
+          }
+@media screen and (max-width: 400px) {
+  
+    .form-main{
+        width: 350px;
+    }    
+}

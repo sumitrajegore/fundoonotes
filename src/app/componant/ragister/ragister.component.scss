@@ -1,0 +1,134 @@
+.word{
+      .letter{
+            color: blue;
+          }
+          .letter1{
+            color: red;
+          }
+          .letter2{
+            color: yellow;
+          }
+          .letter3{
+            color: green;
+          }
+  }
+  .form-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border: 1px solid #9c9c9c;
+    border-radius: 10px;
+    width: 800px;
+    padding: 25px;
+    background: #fff;
+}
+.name{
+    display: inline-block;
+    width: 33%;
+}
+.passwd{
+    display: inline-block;
+    width: 33%;
+}
+.email{
+    input{
+        display: inline-block;
+        width: 200%;
+    }
+}
+// .transfer{
+//     display: flex;
+//     flex-direction: row;
+//     flex-wrap: wrap;
+//     justify-content: center;
+// }
+.btn{
+    // font: 400 13.3333px Arial;
+    // display: inline-block;
+    // left: inherit;
+    margin-left: 30px;
+    margin-top: -20px;
+}
+.line{
+    display: block;
+    margin-top: 30px;
+}
+.logo{
+    display: inline-block;
+    position: inherit;
+    height: 300px;
+    width: 200px;
+    margin-top: -5%;
+    margin-left: 45%;
+    bottom: 100%;
+    right: 10%;
+    transform: translate(85%,85%);
+}
+@media screen and (max-width: 800px) {
+    .form-content{
+        width: 600px;
+    }    
+    .logo{
+        display: none;
+    }
+    .passwd{
+        display: block;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .form-content{
+        width: 400px;
+    }    
+
+    .name{
+        display: grid;
+        // width: 80%;
+    }
+
+    .logo{
+        display: none;
+    }
+
+    .btn{
+        margin-left: 270px;
+    }
+
+    .passwd{
+        display: grid;
+        // width: 80%;
+    }
+
+    .email{
+        input{
+            display:block;
+            width: 80%;
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .form-content{
+        width: 300px;
+    }    
+
+    .logo{
+        display: none;
+    }
+
+    .name{
+        display: grid;
+    }
+
+    .btn{
+        margin-left: 170px;
+    }
+
+    .email{
+        input{
+            display: block;
+            width: 100%;
+        }
+    }
+}
