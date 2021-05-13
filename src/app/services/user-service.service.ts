@@ -23,4 +23,12 @@ export class UserServiceService {
   resetService(data : any, token : any){
     return this.http.post('user/reset-password',data,token)
   }
+  createNote(data: any , id: any){
+    return this.http.post('notes/addNotes',data,id);
+
+  }
+
+  getNoteList(id:any){
+    return this.http.get('notes/getNotesList',id)
+  }
 }

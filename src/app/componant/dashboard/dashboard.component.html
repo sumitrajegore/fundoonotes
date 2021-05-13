@@ -41,29 +41,34 @@
       Trash
     </a>
   </clr-vertical-nav>
-  <div class="content-area" fxLayoutAlign="center start">
+  <div class="content-area" fxLayoutAlign="end start">
     <div *ngIf='!show' (click)='show=!show' class="card1" fxLayout="" fxLayoutAlign="start center">
       <label for="" class="note">Take a note</label>    
     </div>
-    <div *ngIf='show' class="card2">
+    <!-- <div *ngIf='show' class="card2"> -->
+      <form clrForm [formGroup]="form" class="card2" *ngIf='show' class="form">
       <div>
-        <textarea placeholder="Title" clrTextarea class="titlee" name="title" required></textarea>
+        <textarea placeholder="Title" formControlName="title" clrTextarea class="titlee" name="title" required></textarea>
       </div>
       <div>
-        <textarea placeholder="Description" clrTextarea class="description" name="description" required></textarea>
-        <button (click)="show=!show"  class="btn btn-sm btn-link">Close</button>
+        <textarea placeholder="Description" formControlName="description" clrTextarea class="description" name="description" required></textarea>
+        <button (click)="submit()"  class="btn btn-sm btn-link">Close</button>
       </div>
-    </div>
+      </form>
+    <!-- </div> -->
   </div>
-  <!-- <div class="content=area" fxLayout="" fxLayoutAlign="center center">
-    <div *ngFor='cardArray' class="notee">
+  <div class="content-area" fxLayout="row" fxLayoutAlign="start center">
+    <form *ngFor='let card of cardArray' class="notee">
       <div class="text">
         {{card.title}}
       </div>
       <div class="text">
         {{card.description}}
       </div>
-    </div>
-  </div> -->
+      <div>
+        <button class="btn btn-sm btn-link"> edit</button>
+      </div>
+    </form>
+  </div>
 </div>
 </div>

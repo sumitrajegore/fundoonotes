@@ -1,41 +1,53 @@
 .card1{
-    width: 600px;
+    width: 400px;
     min-height:50px;
     border: 1px solid grey;
     border-radius: 10px;
     box-sizing: "inset 1px 1px 0 rgb(0 0 0 / 10%), inset 0 -1px 0 rgb(0 0 0 / 7%);";
     background: white;
 }
-
 .card2{
     width: 600px;
     height: 165px;
     box-sizing: "inset 1px 1px 0 rgb(0 0 0 / 10%), inset 0 -1px 0 rgb(0 0 0 / 7%);";
     background: white;
 }
-
 .titlee{
     width: 605px;
     height: 50px;
     border: none;
     border-radius: 10px;
     margin-top: -30px;
+    resize:none;
 }
-
 .description{
     width: 605px;
     height: 80px;
     border: none;
     border-radius: 10px;
     margin-top: -25px;
+    resize:none;
 }
 
-// .notee{
-//     width: 220px;
-//     min-height: 150px;
-//     border: 1px solid gray;
-//     border-radius: 10px;
-//     .text{
-//         padding: 10px;
-//     }
-// }
+.form{
+    border: 1px solid gray;
+    border-radius: 10px;
+    width: 400px;
+    height: 170px;
+    background: white;
+}
+.btn{
+    align-items: bottom;
+}
+
+.notee{
+    width: 200px;
+    height: 140px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    .text{
+        padding: 15px;
+    }
+    background: white;
+    margin-right: 20px;
+}
