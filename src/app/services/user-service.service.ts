@@ -1,10 +1,21 @@
 import { Injectable } from '@angular/core';
+import { HttpHeaders } from '@angular/common/http';
 import { HttpService } from '../services/http/http.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserServiceService {
+
+  encode(data : any) {
+    const formBody = [];
+    for (const property in data) {
+      const encodedKey = encodeURIComponent(property);
+      const encodedValue = encodeURIComponent(data[property]);
+      formBody.push(encodedKey + '=' + encodedValue);
+    }
+    return formBody.join('&');
+  }
 
   constructor(private http: HttpService) { }
 
@@ -21,14 +32,59 @@ export class UserServiceService {
   }
 
   resetService(data : any, token : any){
-    return this.http.post('user/reset-password',data,token)
+    let options = {
+      headers: new HttpHeaders({
+        'Authorization': token,
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Accept': 'application/json'
+      })
+    }
+    return this.http.post('user/reset-password',this.encode(data),options)
   }
   createNote(data: any , id: any){
-    return this.http.post('notes/addNotes',data,id);
+    let options = {
+      headers: new HttpHeaders({
+        'Authorization': id,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      })
+    }
+    return this.http.post('notes/addNotes',data,options);
 
   }
 
   getNoteList(id:any){
-    return this.http.get('notes/getNotesList',id)
+    let options = {
+      headers: new HttpHeaders({
+        'Authorization': id,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      })
+    }
+    return this.http.get('notes/getNotesList',options)
+  }
+  
+  updateNote(data : any,token : any ){
+    
+    let options = {
+      headers: new HttpHeaders({
+        'Authorization': token,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      })
+    }
+    return this.http.post('notes/updateNotes',data,options);
+  }
+
+  deleteNote(data : any,token : any){
+    
+    let options = {
+      headers: new HttpHeaders({
+        'Authorization': token,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      })
+    }
+    return this.http.post('notes/trashNotes',data,options);
   }
 }
