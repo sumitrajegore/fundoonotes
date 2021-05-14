@@ -41,11 +41,10 @@
       Trash
     </a>
   </clr-vertical-nav>
-  <div class="content-area" fxLayoutAlign="end start">
-    <div *ngIf='!show' (click)='show=!show' class="card1" fxLayout="" fxLayoutAlign="start center">
+  <div class="content-area" fxLayoutAlign="center start">
+    <div *ngIf='!show' (click)='show=!show' class="card1" fxLayout="" fxLayoutAlign="center center">
       <label for="" class="note">Take a note</label>    
     </div>
-    <!-- <div *ngIf='show' class="card2"> -->
       <form clrForm [formGroup]="form" class="card2" *ngIf='show' class="form">
       <div>
         <textarea placeholder="Title" formControlName="title" clrTextarea class="titlee" name="title" required></textarea>
@@ -55,9 +54,6 @@
         <button (click)="submit()"  class="btn btn-sm btn-link">Close</button>
       </div>
       </form>
-    <!-- </div> -->
-  </div>
-  <div class="content-area" fxLayout="row" fxLayoutAlign="start center">
     <form *ngFor='let card of cardArray' class="notee">
       <div class="text">
         {{card.title}}
@@ -65,8 +61,9 @@
       <div class="text">
         {{card.description}}
       </div>
-      <div>
+      <div fxLayout="row">
         <button class="btn btn-sm btn-link"> edit</button>
+        <button class="btn btn-sm btn-link"> delete</button>
       </div>
     </form>
   </div>
