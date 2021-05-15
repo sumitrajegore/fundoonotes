@@ -10,22 +10,22 @@
         </div>
         <div class="name" fxLayout="row" fxLayoutAlign="start center">
             <clr-password-container>
-                <label>New Pasword</label>
-                <input placeholder="Enter Password" formControlName="password" clrPassword name="password" required />
+                <label>Pasword</label>
+                <input placeholder="Enter Password" formControlName="password" clrPassword name="password" minlength=8; required />
                 <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
                 <clr-control-error *clrIfError="'minlength'">It must be at least 8 characters!</clr-control-error>
               </clr-password-container>
         </div>
         <div class="name" fxLayout="row" fxLayoutAlign="start center">
           <clr-password-container>
-            <label>Confirm Pasword</label>
-            <input placeholder="Enter Password" formControlName="password" clrPassword name="password" required />
+            <label>Confirm</label>
+            <input placeholder="Confirm Password" formControlName="password" clrPassword name="password" minlength=8; required />
             <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
             <clr-control-error *clrIfError="'minlength'">It must be at least 8 characters!</clr-control-error>
           </clr-password-container>
-        </div><br>
+        </div><br><br>
         <div fxLayout="row" fxLayoutAlign="space-between center">
-          <a routerLink="/login">Login</a>
+          <a routerLink="/login">Sign in stead</a>
           <button type="submit" class="btn btn-primary">Next</button>
         </div>
       </div>
