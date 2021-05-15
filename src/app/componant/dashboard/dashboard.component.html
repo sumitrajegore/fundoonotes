@@ -3,15 +3,14 @@
   <header class="header header-6">
     <div class="branding">
       <div class="nav-link">
-      <cds-icon shape="bars" (click)="resize()" status="info"></cds-icon>
-
+        <cds-icon shape="bars" (click)="resize()" status="info"></cds-icon>
         <img src="../../../assets/images/keep.png" name="keep" class="keep" alt="keep_image">
         <span style="color: gray" class="title">Keep</span>
       </div>
     </div>
     <form class="search">
       <label for="search_input">
-        <input id="search_input" type="text" placeholder="Search for keywords..." />
+        <input id="search_input" type="text" placeholder="Search for keywords..."/>
       </label>
     </form>
     <div class="header-actions">
@@ -22,7 +21,7 @@
    </header>
   </div>
   <div class="content-container">
-    <clr-vertical-nav [clrVerticalNavCollapsible]="true" [(clrVerticalNavCollapsed)]="collapsed">
+    <clr-vertical-nav [clrVerticalNavCollapsible]="true" [(clrVerticalNavCollapsed)]="collapsed" style="background: white;">
       <a clrVerticalNavLink>
         <cds-icon clrVerticalNavIcon shape="lightbulb" ></cds-icon>
         Notes
