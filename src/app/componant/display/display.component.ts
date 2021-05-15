@@ -1,18 +1,3 @@
-// import { Component, OnInit } from '@angular/core';
-
-// @Component({
-//   selector: 'app-display',
-//   templateUrl: './display.component.html',
-//   styleUrls: ['./display.component.css']
-// })
-// export class DisplayComponent implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit(): void {
-//   }
-
-// }
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserServiceService } from '../../services/user-service.service';
