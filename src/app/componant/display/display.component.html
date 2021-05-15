@@ -1,6 +1,6 @@
 <div fxLayout="row" fxLayoutAlign="center start">
-    <div *ngIf='!show' (click)='show=!show' class="card1">
-        <label for="" class="note">Take a note</label>
+    <div *ngIf='!show' (click)='show=!show' class="card1" fxLayoutAlign="start center">
+        <label for="" class="note">Take a note...</label>
     </div>
     <form clrForm [formGroup]="form" class="card2" *ngIf='show' >
         <div>
