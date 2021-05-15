@@ -1,7 +1,6 @@
-<div>
+<!-- <div>
     <form class="form-main" clrForm [formGroup]="form" (ngSubmit)="submit()">
     <div>
-      <!-- <app-fundooheader fxLayout="column" fxLayoutAlign="space-between center"></app-fundooheader> -->
       <div class="word" fxLayout="row" fxLayoutAlign="center">
         <h2><span class="letter">F</span></h2>
         <h2><span class="letter1">U</span></h2>
@@ -29,10 +28,6 @@
           </clr-control-error>
         </clr-password-container>
       </div>
-      <!-- <div fxLayout="row" fxLayoutAlign="center center">
-        <input type="checkbox" name="rememberMe" clrCheckbox/>
-        <span>RememberMe</span>          
-      </div> -->
       <div style="margin-top: 45px;" fxLayout="row" fxLayoutAlign="center center">
         <a routerLink="/forget"> Forgot Password? </a>
       </div>
@@ -41,7 +36,43 @@
       </div>
       <div fxLayout="row" fxLayoutAlign="center center">
         <a routerLink="/ragister"> Create an fundoo account? </a>
-        <!-- <a class="btn" routerLink="/votes">Check votes</a> -->
+      </div>
+    </div>
+  </form>
+</div> -->
+
+<div>
+  <form clrForm [formGroup]="form" (ngSubmit)="submit()" class="form-main">
+    <div>
+      <app-fundooheader fxLayout="column" fxLayoutAlign="space-around center"></app-fundooheader>
+      <div fxLayout="column" fxLayoutAlign="space-around center">
+        <h2>Login</h2>
+      </div>
+      <div fxLayout="column" fxLayoutAlign="space-around center">
+        <h3>Use your Fundoo account</h3>
+      </div>
+      <div class="email" fxLayout="row" fxLayoutAlign="start center">
+        <clr-input-container>
+          <input clrInput formControlName="email" placeholder="Enter Email" name="email" required />
+          <label>Email</label>
+          <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
+        </clr-input-container>
+      </div>
+      <div class="password" fxLayout="row" fxLayoutAlign="start center">
+        <clr-password-container>
+          <label>Pasword</label>
+          <input placeholder="Enter Password" formControlName="password" clrPassword name="password" />
+          <clr-control-error *clrIfError="'required'">This field is required!</clr-control-error>
+          <clr-control-error *clrIfError="'minlength'">It must be at least 8 characters!</clr-control-error>
+        </clr-password-container>
+      </div>
+      <div>
+        <p>Not your Computer?</p>
+        <a href="">Learn More</a>
+      </div><br><br>
+      <div fxLayout="row" fxLayoutAlign="space-between center">
+        <a routerLink="/register" >Create Account</a>
+        <button type="submit" class="btn btn-primary">Next</button>
       </div>
     </div>
   </form>

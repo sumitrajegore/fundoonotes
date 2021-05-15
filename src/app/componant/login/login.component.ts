@@ -1,48 +1,53 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserServiceService } from  '../../services/user-service.service';
+import { UserServiceService } from '../../services/user-service.service';
+import { Router } from '@angular/router';
 
-
+const REGEXEMAIL = new RegExp("^[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-])*@[A-Za-z0-9-]+(?:\\.[A-Za-z0-9-]+)*$");
+const REGEXPASSWORd = new RegExp("^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=[^$@!#%*?&]*[$#@!%*?&][^$@!#%*?&]*$).{8,}");
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private userService: UserServiceService) {
-    // create our form group with all the inputs we will be using in the template
+  constructor(private formBuilder: FormBuilder , private userService: UserServiceService, private router: Router) {
     this.form = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
   }
 
-  submit() {
+  submit(){
     if (this.form.valid) {
       console.log(this.form.value);
-      let arr = [] as any;
+      
+      let array = [] as any;
+
       let reqObj = {
-        email : this.form.value.email,
-        password : this.form.value.password
+        email:this.form.value.email,
+        password:this.form.value.password
       }
 
       console.log(reqObj);
-
+      
       this.userService.loginService(reqObj).subscribe((res) => {
         console.log(res);
-        arr=res;
-        console.log(arr.id);
-        localStorage.setItem('id',arr.id);
+        array = res;
+        console.log(array.id);
+        localStorage.setItem('id',array.id);
+        this.router.navigate(['dashboard']);
       },(error) => {
         console.log(error);
-      })
+      });
     }
   }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
+  
 }

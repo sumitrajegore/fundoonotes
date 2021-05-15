@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserServiceService } from  '../../services/user-service.service';
+import { id } from '@cds/core/internal';
+import { UserServiceService } from '../../services/user-service.service';
+
+const REGEXNAME = new RegExp("[A-Z]{1}[a-z]{2,}");
+const REGEXEMAIL = new RegExp("^[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-])*@[A-Za-z0-9-]+(?:\\.[A-Za-z0-9-]+)*$");
+const REGEXPASSWORd = new RegExp("^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=[^$@!#%*?&]*[$#@!%*?&][^$@!#%*?&]*$).{8,}");
 
 @Component({
   selector: 'app-ragister',
@@ -8,22 +13,26 @@ import { UserServiceService } from  '../../services/user-service.service';
   styleUrls: ['./ragister.component.scss']
 })
 export class RagisterComponent implements OnInit {
-
+  
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder,  private userService: UserServiceService) {
-    // create our form group with all the inputs we will be using in the template
+  constructor(private formBuilder: FormBuilder, private userService: UserServiceService) {
     this.form = this.formBuilder.group({
-      fname: ['', Validators.required],
-      lname: ['', Validators.required],
+      fname:['',[Validators.required]],
+      lname:['',[Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      // password: ['', [Validators.required, Validators.password]],
       password: ['', Validators.required]
-
     });
   }
 
-  submit() {
+  public hasError = (controlName: string, errorName: string) => {
+      return this.form.controls[controlName].hasError(errorName);
+  }
+
+  ngOnInit(): void {
+  }
+
+  submit(){
     if (this.form.valid) {
       console.log(this.form.value);
 
@@ -39,13 +48,10 @@ export class RagisterComponent implements OnInit {
 
       this.userService.registerService(reqObj).subscribe((res) => {
         console.log(res);
+        console.log(res);
       },(error) => {
         console.log(error);
       })
     }
   }
-
-  ngOnInit(): void {
-  }
-
-}
+} 

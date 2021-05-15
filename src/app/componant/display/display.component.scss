@@ -1,0 +1,90 @@
+.card1{
+    width: 400px;
+    min-height:20px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: inset 1px 1px 0 rgb(0 0 0 / 10%), inset 0 -1px 0 rgb(0 0 0 / 7%);
+    background-color: white;
+}
+
+.card2{
+    width: 400px;
+    min-height: 100px;
+    box-shadow: inset 1px 1px 0 rgb(0 0 0 / 10%), inset 0 -1px 0 rgb(0 0 0 / 7%);
+}
+
+.title{
+    width: 100%;
+    height: 50px;
+    margin-bottom: -30px;
+    resize: none;
+}
+
+.description{
+    width: 100%;
+    resize: none;
+}
+
+.btn{
+    align-items: bottom;
+}
+
+.newnote{
+    margin-top:20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width:200px;
+    min-height: 40px;
+    background-color: white;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+}
+
+.title-new{
+    height: 40px;
+    border: none;
+    margin-bottom: -6px;
+    font-weight: 600;
+    resize: none;
+    width: 195px;
+}
+
+.icon{
+    margin-right: 140px;
+    .bell, .user , .clr , .img, .arch{
+        margin-right: 10px;
+    }
+}
+
+.description-new{
+    height: 60px;
+    border: none;
+    resize: none;
+    width: 195px;
+}
+
+.title-new1{
+    height: 60px;
+    border: none;
+    width:500px;
+    resize: none;
+    margin-bottom: 5px;
+
+}
+
+.icons{
+    margin-bottom: 8px;
+}
+
+.description-new1{
+    height: 80px;
+    border: none;
+    width: 500px;
+    resize: none;
+
+}
+
+.newnote1{
+    border: none;
+}

@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { HttpService } from '../services/http/http.service';
 
 @Injectable({
@@ -31,7 +31,8 @@ export class UserServiceService {
     return this.http.post('user/reset',data,"");
   }
 
-  resetService(data : any, token : any){
+  resetService(data : any,token : any){
+    
     let options = {
       headers: new HttpHeaders({
         'Authorization': token,
@@ -41,6 +42,7 @@ export class UserServiceService {
     }
     return this.http.post('user/reset-password',this.encode(data),options)
   }
+
   createNote(data: any , id: any){
     let options = {
       headers: new HttpHeaders({
@@ -50,10 +52,10 @@ export class UserServiceService {
       })
     }
     return this.http.post('notes/addNotes',data,options);
-
   }
 
   getNoteList(id:any){
+    
     let options = {
       headers: new HttpHeaders({
         'Authorization': id,
@@ -63,7 +65,7 @@ export class UserServiceService {
     }
     return this.http.get('notes/getNotesList',options)
   }
-  
+
   updateNote(data : any,token : any ){
     
     let options = {
@@ -86,5 +88,17 @@ export class UserServiceService {
       })
     }
     return this.http.post('notes/trashNotes',data,options);
+  }
+
+  logout(id : any){
+    let options = {
+      headers: new HttpHeaders({
+        'Authorization': id,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      })
+    }
+    return this.http.post('notes/logout',"",options);
+
   }
 }

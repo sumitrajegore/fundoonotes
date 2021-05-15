@@ -1,20 +1,20 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './componant/dashboard/dashboard.component';
-import { ForgetpasswardComponent } from './componant/forgetpassward/forgetpassward.component';
+import { DisplayComponent } from './componant/display/display.component';
+import { ForgotpasswordComponent } from './componant/forgotpassword/forgotpassword.component';
 import { LoginComponent } from './componant/login/login.component';
 import { RagisterComponent } from './componant/ragister/ragister.component';
-import { ResetpasswardComponent } from './componant/resetpassward/resetpassward.component';
-
+import { ResetpasswordComponent } from './componant/resetpassward/resetpassward.component';
 
 const routes: Routes = [
   {
-    path : "",  
+    path : "",
     redirectTo: "login",
     pathMatch: "full"
   },
   { 
-    path: 'ragister',
+    path: 'register',
     component: RagisterComponent
   },
   {
@@ -23,29 +23,26 @@ const routes: Routes = [
   },
   {
     path: 'resetpassword/:token',
-    component: ResetpasswardComponent
+    component: ResetpasswordComponent
   },
   {
-    path: 'forget',
-    component: ForgetpasswardComponent
+    path: 'forgot',
+    component: ForgotpasswordComponent
   },
   {
-    path: 'dashboard',
+    path:'dashboard',
     component: DashboardComponent
   },
   {
-    path: "**",
-    redirectTo: "reset",
-    pathMatch: "full"
+    path:'display',
+    component: DisplayComponent
   }
-]
+];
 
 @NgModule({
-  imports: [
-      RouterModule.forRoot(routes)
-    ],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 
-export class AppRoutingModule { } 
-
+export class AppRoutingModule { 
+}
