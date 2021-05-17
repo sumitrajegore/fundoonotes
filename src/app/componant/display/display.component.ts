@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserServiceService } from '../../services/user-service.service';
 import { ClarityIcons,trashIcon,bellIcon,userIcon,colorPaletteIcon,imageGalleryIcon,archiveIcon,ellipsisVerticalIcon } from '@cds/core/icon';
@@ -18,13 +18,14 @@ ClarityIcons.addIcons(ellipsisVerticalIcon);
 })
 export class DisplayComponent implements OnInit {
 
-  public show = false;
   public display = false;
   public openModal = false;
   detail = [] as any;
   form: FormGroup;
-  cardArray = [] as any;
   deleted = [] as any;
+  @Input() cardArray=[];
+
+
 
   constructor(private formBuilder: FormBuilder, private userService: UserServiceService) {
     this.form = this.formBuilder.group({
@@ -35,55 +36,14 @@ export class DisplayComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getNoteList();
   }
 
-  getNoteList(){
-    this.openModal = false;
-    let id = localStorage.getItem('id');
-    let arr = [] as any;
-    
-    this.userService.getNoteList(id).subscribe((res) => {
-      arr = res;  
-      console.log(res);
-      console.log(arr);
-      this.cardArray = arr.data.data;
-      console.log(this.cardArray);
-      console.log(this.cardArray[2].isDeleted);
-      console.log(this.cardArray);
-    })
-  }
 
   getId(card : any){
     this.detail = card;
     console.log(this.detail);
   }
 
-  submit() {
-    this.show = false;
-
-    if (this.form.valid) {
-      console.log("Submit called");
-      this.show = false;
-
-      let reqObj = {
-        title: this.form.value.title,
-        description: this.form.value.description
-      }
-
-      console.log(reqObj);
-
-      let id = localStorage.getItem('id');
-
-      this.userService.createNote(reqObj, id).subscribe((res) => {
-        console.log(res);
-        this.getNoteList();
-      }, (error) => {
-        console.log(error);
-      })
-
-    }
-  }
 
   updateNote(){
     console.log("Method called");
@@ -104,7 +64,6 @@ export class DisplayComponent implements OnInit {
 
     this.userService.updateNote(reqObj,token).subscribe((res) => {
       console.log(res);
-      this.getNoteList();
     },(error) => {
       console.log(error);
     })
@@ -121,7 +80,6 @@ export class DisplayComponent implements OnInit {
 
     this.userService.deleteNote(reqObj,token).subscribe((res) => {
       console.log(res);
-      this.getNoteList();
     },(error) => {
       console.log(error);        
     })
