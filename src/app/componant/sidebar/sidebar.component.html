@@ -1,0 +1,28 @@
+<div class="content-container">
+    <clr-vertical-nav [clrVerticalNavCollapsible]="true" [(clrVerticalNavCollapsed)]="collapsed" style="background: white;">
+      <a clrVerticalNavLink routerLink="./notes" routerLinkActive="active">
+        <cds-icon clrVerticalNavIcon shape="lightbulb" ></cds-icon>
+        Notes
+      </a>
+      <a clrVerticalNavLink routerLink="./reminders" routerLinkActive="active">
+        <cds-icon clrVerticalNavIcon shape="bell"></cds-icon>
+        Reminders
+      </a>
+      <a clrVerticalNavLink routerLink="./edit-labels" routerLinkActive="active">
+        <cds-icon clrVerticalNavIcon shape="pencil"></cds-icon>
+        Edit labels
+      </a>
+      <a clrVerticalNavLink routerLink="./archive" routerLinkActive="active">
+        <cds-icon clrVerticalNavIcon shape="archive"></cds-icon>
+        Archive
+      </a>
+        <a clrVerticalNavLink routerLink="./trash" routerLinkActive="active">
+        <cds-icon clrVerticalNavIcon shape="trash"></cds-icon>
+        Trash
+      </a>
+    </clr-vertical-nav>
+    <div class="content-area" style="background: white;">
+      <app-create-note></app-create-note>
+      <app-display [cardArray]="parrentArray" ></app-display>
+    </div>
+  </div>

@@ -1,0 +1,33 @@
+<div>
+    <header class="header header-6">
+      <div class="branding">
+        <div class="nav-link">
+          <cds-icon shape="bars" (click)="resize()" status="info"></cds-icon>
+          <img src="../../../assets/images/keep.png" name="keep" class="keep" alt="keep_image">
+          <span style="color: gray" class="title">Keep</span>
+        </div>
+      </div>
+      <form class="search">
+        <label for="search_input">
+          <input id="search_input" type="text" placeholder="Search for keywords..." style="background: whitesmoke; border-radius: 10px;">
+        </label>
+      </form>
+      <div class="header-actions">
+        <button class="nav-link nav-icon" aria-label="refresh">
+          <cds-icon shape="refresh" status="info"></cds-icon>
+        </button>
+        <button href="" class="nav-link nav-icon" aria-label="view-list">
+          <cds-icon shape="view-list" status="info"></cds-icon>
+        </button>
+        <button href="" class="nav-link nav-icon" aria-label="cog">
+          <cds-icon shape="cog" status="info"></cds-icon>
+        </button>
+        <button href="" class="nav-link nav-icon" aria-label="google-app">
+          <cds-icon shape="applications" status="info"></cds-icon>
+        </button>
+        <button href="" class="nav-link nav-icon" aria-label="profile" fxLayoutAlign="center center">
+          <img src="../../../assets/images/sumit.jpeg" name="sumit" (click)="logout()" class="sumit" alt="sumit_image">
+        </button>
+      </div> 
+     </header>
+    </div>

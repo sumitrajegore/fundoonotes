@@ -1,0 +1,22 @@
+<div fxLayout="row wrap" fxLayoutAlign="center start">
+    <div *ngIf='!show' (click)='show=!show' class="card1" fxLayoutAlign="start center">
+        <label for="" class="note">Take a note...</label>
+    </div>
+    <form clrForm [formGroup]="form" class="card2" *ngIf='show' >
+        <div>
+            <textarea placeholder="Title" formControlName="title" clrTextarea class="title" name="title" required></textarea>
+        </div>
+        <div>
+            <textarea placeholder="Description" formControlName="description" clrTextarea class="description" name="description" required></textarea>
+            <div fxLayout="row" fxLayoutAlign="space-evenly center">
+                <cds-icon shape="bell"></cds-icon>
+                <cds-icon shape="user"></cds-icon>
+                <cds-icon shape="color-palette"></cds-icon>
+                <cds-icon shape="image-gallery"></cds-icon>
+                <cds-icon shape="archive"></cds-icon>
+                <cds-icon shape="ellipsis-vertical"></cds-icon>
+                <button class="btn btn-sm" (click)="submit()">Close</button>
+            </div>
+        </div>
+    </form>
+</div>
