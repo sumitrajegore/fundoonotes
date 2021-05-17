@@ -14,38 +14,54 @@
       </label>
     </form>
     <div class="header-actions">
-      <a href="" class="nav-link nav-icon" aria-label="settings">
-        <cds-icon shape="user" status="info" (click)="logout()"></cds-icon>
-      </a>
+      <button class="nav-link nav-icon" aria-label="refresh">
+        <cds-icon shape="refresh" status="info"></cds-icon>
+      </button>
+      <button class="nav-link nav-icon" aria-label="view-list">
+        <cds-icon shape="view-list" status="info"></cds-icon>
+      </button>
+      <button class="nav-link nav-icon" aria-label="cog">
+        <cds-icon shape="cog" status="info"></cds-icon>
+      </button>
+      <button class="nav-link nav-icon" aria-label="google-app">
+        <cds-icon shape="applications" status="info"></cds-icon>
+      </button>
+      <button class="nav-link nav-icon" aria-label="profile" fxLayoutAlign="center center">
+        <img src="../../../assets/images/sumit.jpeg"  (click)="logout()" name="sumit" class="sumit" alt="sumit_image">
+      </button>
     </div> 
    </header>
   </div>
+  <!-- <app-headebar></app-headebar> -->
   <div class="content-container">
     <clr-vertical-nav [clrVerticalNavCollapsible]="true" [(clrVerticalNavCollapsed)]="collapsed" style="background: white;">
-      <a clrVerticalNavLink>
+      <a clrVerticalNavLink routerLink="./notes" routerLinkActive="active">
         <cds-icon clrVerticalNavIcon shape="lightbulb" ></cds-icon>
         Notes
       </a>
-      <a clrVerticalNavLink>
+      <a clrVerticalNavLink routerLink="./reminders" routerLinkActive="active">
         <cds-icon clrVerticalNavIcon shape="bell"></cds-icon>
         Reminders
       </a>
-      <a clrVerticalNavLink>
+      <a clrVerticalNavLink routerLink="./edit-labels" routerLinkActive="active">
         <cds-icon clrVerticalNavIcon shape="pencil"></cds-icon>
         Edit labels
       </a>
-      <a clrVerticalNavLink>
+      <a clrVerticalNavLink routerLink="./archive" routerLinkActive="active">
         <cds-icon clrVerticalNavIcon shape="archive"></cds-icon>
         Archive
       </a>
-      <a clrVerticalNavLink>
+        <a clrVerticalNavLink routerLink="./trash" routerLinkActive="active">
         <cds-icon clrVerticalNavIcon shape="trash"></cds-icon>
         Trash
       </a>
     </clr-vertical-nav>
-    <div   class="content-area" style="background: white;">
-      <app-display></app-display>
+    <div class="content-area" style="background: white;">
+      <!-- <app-create-note></app-create-note>
+      <app-display [cardArray]="parrentArray" ></app-display> -->
+      <router-outlet></router-outlet>
     </div>
   </div>
+  <!-- <app-sidebar></app-sidebar> -->
 </div>
-    
+  <!-- <router-outlet> </router-outlet>   -->
