@@ -1,25 +1,3 @@
-<div fxLayout="row" fxLayoutAlign="center start">
-    <div *ngIf='!show' (click)='show=!show' class="card1" fxLayoutAlign="start center">
-        <label for="" class="note">Take a note...</label>
-    </div>
-    <form clrForm [formGroup]="form" class="card2" *ngIf='show' >
-        <div>
-            <textarea placeholder="Title" formControlName="title" clrTextarea class="title" name="title" required></textarea>
-        </div>
-        <div>
-            <textarea placeholder="Description" formControlName="description" clrTextarea class="description" name="description" required></textarea>
-            <div fxLayout="row" fxLayoutAlign="space-around center">
-                <cds-icon shape="bell"></cds-icon>
-                <cds-icon shape="user"></cds-icon>
-                <cds-icon shape="color-palette"></cds-icon>
-                <cds-icon shape="image-gallery"></cds-icon>
-                <cds-icon shape="archive"></cds-icon>
-                <cds-icon shape="ellipsis-vertical"></cds-icon>
-                <button class="btn btn-sm" (click)="submit()">Close</button>
-            </div>
-        </div>
-    </form>
-</div>
 
 <div fxLayout="row wrap" fxLayoutAlign="start center"  class="note-contents">
     <form (click)='openModal=!openModal' *ngFor='let card of cardArray' class="newnote">
@@ -30,7 +8,7 @@
             <div >
                 <div>
                     <textarea name="" class="description-new" value={{card.description}} id="" cols="10" rows="10"></textarea>
-                    <div fxLayout="row" fxLayoutAlign="space-between center" class="icons">
+                    <div fxLayout="row" fxLayoutAlign="space-evenly center" class="icons">
                         <cds-icon shape="bell"></cds-icon>
                         <cds-icon shape="user"></cds-icon>
                         <cds-icon shape="color-palette"></cds-icon>
@@ -52,7 +30,7 @@
                 <textarea name="" class="description-new1" formControlName="description" id="" value={{detail.description}} cols="10" rows="10"></textarea>
             </div>
             <div class="modal-footer">
-                <div fxLayout="row" fxLayoutAlign="start space-between" class="icon">
+                <div fxLayout="row" fxLayoutAlign="start space-evenly" class="icon">
                     <cds-icon shape="bell" size="lg" class="bell"></cds-icon>
                     <cds-icon shape="user" size="lg" class="user"></cds-icon>
                     <cds-icon shape="color-palette" size="lg" class="clr"></cds-icon>
