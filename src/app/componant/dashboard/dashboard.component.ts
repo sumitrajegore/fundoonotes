@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import '@cds/core/icon/register.js';
-import { ClarityIcons, lightbulbIcon,bellIcon,pencilIcon,archiveIcon,trashIcon,cogIcon,barsIcon,userIcon } from '@cds/core/icon';
+import { ClarityIcons, lightbulbIcon,viewListIcon,bellIcon,pencilIcon,refreshIcon,archiveIcon,trashIcon,cogIcon,barsIcon,userIcon, applicationsIcon } from '@cds/core/icon';
 import { UserServiceService } from '../../services/user-service.service';
 import { Router } from '@angular/router';
 
@@ -12,6 +12,12 @@ ClarityIcons.addIcons(trashIcon);
 ClarityIcons.addIcons(cogIcon);
 ClarityIcons.addIcons(barsIcon);
 ClarityIcons.addIcons(userIcon);
+ClarityIcons.addIcons(refreshIcon);
+ClarityIcons.addIcons(viewListIcon);
+ClarityIcons.addIcons(applicationsIcon);
+
+
+
 
 @Component({
   selector: 'app-dashboard',
@@ -22,10 +28,15 @@ ClarityIcons.addIcons(userIcon);
 export class DashboardComponent implements OnInit {
 
   public collapsed = true;
+  public openModal = false;
+  parrentArray = [] as any;
+
   constructor(private userService : UserServiceService,private router : Router) { }
   
   ngOnInit(): void {
     this.collapsed = true;
+    this.getNoteList();
+
   }
 
   public resize() {
@@ -46,5 +57,20 @@ export class DashboardComponent implements OnInit {
       console.log(error);
     })
     
+  }
+  getNoteList(){
+    this.openModal = false;
+    let id = localStorage.getItem('id');
+    let arr = [] as any;
+    
+    this.userService.getNoteList(id).subscribe((res) => {
+      arr = res;  
+      console.log(res);
+      console.log(arr);
+      this.parrentArray = arr.data.data;
+      console.log(this.parrentArray);
+      console.log(this.parrentArray[2].isDeleted);
+      console.log(this.parrentArray);
+    })
   }
 }
