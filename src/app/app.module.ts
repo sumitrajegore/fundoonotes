@@ -16,6 +16,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './componant/dashboard/dashboard.component';
 import { DisplayComponent } from './componant/display/display.component';
+import { CreateNoteComponent } from './componant/create-note/create-note.component';
+import { TrashComponent } from './componant/trash/trash.component';
+import { RemindersComponent } from './componant/reminders/reminders.component';
+import { NotesComponent } from './componant/notes/notes.component';
+import { EditLabelsComponent } from './componant/edit-labels/edit-labels.component';
+import { ArchiveComponent } from './componant/archive/archive.component';
+import { HeadebarComponent } from './componant/headebar/headebar.component';
+import { SidebarComponent } from './componant/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +34,15 @@ import { DisplayComponent } from './componant/display/display.component';
     ForgotpasswordComponent,
     FundooheaderComponent,
     DashboardComponent,
-    DisplayComponent
+    DisplayComponent,
+    CreateNoteComponent,
+    TrashComponent,
+    RemindersComponent,
+    NotesComponent,
+    EditLabelsComponent,
+    ArchiveComponent,
+    HeadebarComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +52,8 @@ import { DisplayComponent } from './componant/display/display.component';
     FormsModule,
     FlexLayoutModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
