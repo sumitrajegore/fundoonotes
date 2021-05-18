@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserServiceService } from '../../services/user-service.service';
 
@@ -17,12 +17,18 @@ export class HeadebarComponent implements OnInit {
 
   constructor(private userService : UserServiceService,private router : Router) { }
 
+//   @Output() collapsevent = new EventEmitter<boolean>();
+//   public navBarisCollapsed=false;
+
+//  toggleCollapseAndsendCollapseEvent() {
+//   this.navBarisCollapsed= !this.navBarisCollapsed;
+//   this.collapsevent.emit(this.navBarisCollapsed)
+// }
 
   ngOnInit(): void {
     this.collapsed = true;
     this.getNoteList();
-
-
+    // this.navBarisCollapsed=false;
   }
   public resize() {
     if(this.collapsed == true){

@@ -22,7 +22,9 @@ export class CreateNoteComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  
   }
+
   submit() {
     this.show = false;
 

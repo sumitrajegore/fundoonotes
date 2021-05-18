@@ -33,6 +33,11 @@ export class DashboardComponent implements OnInit {
 
   constructor(private userService : UserServiceService,private router : Router) { }
   
+  // public sideNavCollapsed=false;
+
+  // reciveCollapseEvent($event : boolean){
+  //   this.sideNavCollapsed=$event;
+  // }
   ngOnInit(): void {
     this.collapsed = true;
     this.getNoteList();
