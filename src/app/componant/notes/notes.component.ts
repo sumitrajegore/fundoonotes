@@ -9,37 +9,38 @@ import { Router } from '@angular/router';
   templateUrl: './notes.component.html',
   styleUrls: ['./notes.component.css']
 })
+
 export class NotesComponent implements OnInit {
   public openModal = false;
   parrentArray = [] as any;
 
 
 
-  constructor(private userService : UserServiceService, private router : Router) { }
+  constructor(private userService: UserServiceService, private router: Router) { }
 
 
   ngOnInit(): void {
     this.getNoteList();
   }
 
-  logout(){
+  logout() {
     let id = localStorage.getItem('id');
 
     this.userService.logout(id).subscribe((res) => {
       console.log(res);
       this.router.navigate(['login'])
-    },(error) => {
+    }, (error) => {
       console.log(error);
     })
-    
+
   }
-  getNoteList(){
+  getNoteList() {
     this.openModal = false;
     let id = localStorage.getItem('id');
     let arr = [] as any;
-    
+
     this.userService.getNoteList(id).subscribe((res) => {
-      arr = res;  
+      arr = res;
       console.log(res);
       console.log(arr);
       this.parrentArray = arr.data.data;
